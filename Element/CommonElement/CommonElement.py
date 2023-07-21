@@ -5,6 +5,8 @@ from airtest.core.api import *
 # from airtest.cli.parser import cli_setup
 from os.path import abspath, dirname
 import sys
+from Element.ClientToServer.ClientToServer import Element as ClientToServer
+
 
 from selenium.common.exceptions import NoSuchElementException
 # import datetime
@@ -23,6 +25,7 @@ class CommonElement:
     def __init__(self, driver):
         self.airtest_driver = driver
         self.driver = web_tool(driver)
+        self.client_to_server = ClientToServer(driver)
 
     @allure.step("Click app launcher")
     def click_app_launcher(self, service_name="Service Console"):
@@ -35,7 +38,6 @@ class CommonElement:
         except NoSuchElementException:
             self.driver.find_element_by_xpath_click(xpath2)  # service / bolt solutions / others (?)
             self.switch_service_in_launcher_v2(service_name)
-        sleep(3)
 
 
     @allure.step("Switch service(when clicked by xpath1)")
@@ -71,3 +73,14 @@ class CommonElement:
         for i in range(length - 1):
             self.driver.find_element_by_xpath_click(xpath_first_tab_close_button)
             sleep(1)
+
+    @allure.story('Test accept case')
+    def test_accept_case(self):
+        self.client_to_server.click_app_launcher("Service Console")
+        self.client_to_server.close_all_tabs()
+        self.client_to_server.toggle_omni_channel()
+        self.client_to_server.online_omni_channel()
+
+        self.client_to_server.accept_omni_channel_case()
+        self.client_to_server.toggle_omni_channel()
+

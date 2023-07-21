@@ -11,3 +11,4 @@ selenium==3.14
 opencv-python
 jsonpath
 pyinstaller
+webdriver-manager

@@ -29,13 +29,11 @@ if __name__ == '__main__':
         # 'test_ServiceConsole',
 
         # 'test_Login',
-        'test_ClientToServer',        # Test Case 1
-        'test_FreeTextMessaging',     # Test Case 2 + 5 (Template loading with changes to fields)
-        'test_BulkMessaging',         # Test Case 3
-        'test_BulkMessagesFromCsv',   # Test Case 4
-        # 'test_CaseWaiting',           # Test Case 8
-        # 'test_QueueWaiting',          # Test Case 9
-
+        # 'test_ClientToServer',        # Test Case 1
+        # 'test_FreeTextMessaging',     # Test Case 2 + 5 (Template loading with changes to fields)
+        # 'test_BulkMessaging',         # Test Case 3
+        # 'test_BulkMessagesFromCsv',   # Test Case 4
+        'test_WaitMessages',          # Test Case 7, 8, 9
         # 'test_ENameCard',             # Test Case 12
 
     ]

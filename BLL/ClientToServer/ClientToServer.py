@@ -18,7 +18,7 @@ class ClientToServer:
 
     @allure.story('Test accept case')
     def test_accept_case(self):
-        self.open_service_console()
+        self.element.click_app_launcher("Service Console")
         self.element.close_all_tabs()
         self.element.toggle_omni_channel()
         self.element.online_omni_channel()

@@ -13,9 +13,9 @@ class WaitingMessages:
         self.wm = WaitingMessagesElement(driver)
 
     @allure.story("Test Queue, case waiting")
-    def test_bot_expiry_queue_wait_case_wait(self, contact, alt_contact):
-        self.we.scan_qr_code()
-        self.wm.test_bot_expiry(contact, alt_contact)
+    def test_bot_expiry_queue_wait_case_wait(self, contact, alt_contact, username, password):
+        # self.we.scan_qr_code()
+        self.wm.test_bot_expiry(contact, alt_contact, username, password)
 
 
 

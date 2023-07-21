@@ -7,6 +7,7 @@ from os.path import abspath, dirname
 import sys
 
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
 # import datetime
 
 from selenium.webdriver.common.keys import Keys
@@ -30,6 +31,9 @@ class Element:
         xpath1 = r'/html/body/div[4]/div[1]/section/div[1]/div/div[1]/div[1]/div/div[1]/div[1]/button'
         xpath2 = r'/html/body/div[4]/div[1]/section/div[1]/div[1]/one-appnav/div/div/div/div/one-app-launcher-header/button'
         try:
+            # with allure.step("click"):
+            #     self.airtest_driver.find_element(By.XPATH, xpath1).click()  #
+
             self.driver.find_element_by_xpath_click(xpath1)  # service console / sales console
             self.switch_service_in_launcher_v1(service_name)
         except NoSuchElementException:

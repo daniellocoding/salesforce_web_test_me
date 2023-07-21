@@ -31,7 +31,10 @@ class TestLogin:
         allure.dynamic.title("Hello")
         driver = before
         driver.get("https://here2serve--uatc.sandbox.my.salesforce.com/?login")
+        LoginPage(driver).login(username="daniel.tl.lo@pccw.com.uatc", password="123456")
         # username_input(driver)
+
+
 
 # @allure.story("test username")
 # def username_input(driver):
@@ -40,8 +43,8 @@ class TestLogin:
 #         driver.find_element(By.XPATH, xpath_username).send_keys("daniel.tl.lo@pccw.com.uatc")
 #         driver.assert_exist('/html/body/div[1]/div[1]/div/div/div[2]/div[3]/form/div[1]/label', "Username")
 
-if __name__ == '__main__':
-    # 运行整个test_register.py文件
-    pytest.main(["-sq", fr"{project_path}\\TestCase\\test_Login.py", "--alluredir=.\\report", "--clean-alluredir","--reruns", "1", "--reruns-delay", "5"])
-    h1 = LogToHtml(script_root=f'{project_path}\\TestCase\\test_Login.py',script_name='test_login',log_root=f'{project_path}\\log',export_dir=f'{project_path}\\AirtestReport',logfile=f'{project_path}\\log\\log.txt',lang='zh',plugins=["airtest_selenium.report"])
-    h1.report()
+# if __name__ == '__main__':
+#     # 运行整个test_register.py文件
+#     pytest.main(["-sq", fr"{project_path}\\TestCase\\test_Login.py", "--alluredir=.\\report", "--clean-alluredir","--reruns", "1", "--reruns-delay", "5"])
+#     h1 = LogToHtml(script_root=f'{project_path}\\TestCase\\test_Login.py',script_name='test_login',log_root=f'{project_path}\\log',export_dir=f'{project_path}\\AirtestReport',logfile=f'{project_path}\\log\\log.txt',lang='zh',plugins=["airtest_selenium.report"])
+#     h1.report()

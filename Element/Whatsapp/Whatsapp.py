@@ -33,13 +33,12 @@ class WhatsappElement:
 
     @allure.step("Search for contact")
     def search_for_contact(self, contact="+852 5410 5130", alt_contact="csl UATB Testing 2"):
+        # find contact by number
         inp_xpath_search = '/html/body/div[1]/div/div/div[4]/div/div[1]/div/div/button'
         inp_xpath_search_content = '/html/body/div[1]/div/div/div[4]/div/div[1]/div/div/div[2]/div/div'
-
         input_box_search = self.driver.find_element_by_xpath(inp_xpath_search)
         input_box_search.click()
         time.sleep(2)
-
         input_box_search_content = self.driver.find_element_by_xpath(inp_xpath_search_content)
         input_box_search_content.send_keys(contact)
         try:
@@ -48,11 +47,6 @@ class WhatsappElement:
         except NoSuchElementException:
             selected_contact = self.driver.find_element_by_xpath("//span[@title='" + alt_contact + "']")
             selected_contact.click()
-        time.sleep(2)
-
-
-
-
         time.sleep(2)
 
     @allure.step("Send text thru chat box")

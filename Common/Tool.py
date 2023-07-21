@@ -29,7 +29,7 @@ class web_tool:
 
     def find_element_by_xpath_click(self, xpath):
         with allure.step("Click content："+xpath):
-            self.driver.implicitly_wait(20)
+            self.driver.implicitly_wait(5)
             # WebDriverWait(self.driver,40).until()
             element = self.driver.find_element_by_xpath(xpath)
             ActionChains(self.driver).move_to_element(element).perform()

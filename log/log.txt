@@ -1,0 +1,1 @@
+{"tag": "function", "depth": 1, "time": 1689814534.1113896, "data": {"name": "get", "call_args": {"self": "<airtest_selenium.proxy.WebChrome (session=\"459511942c9839d40f3991ac8c37e220\")>", "address": "http://web.whatsapp.com"}, "start_time": 1689814531.406428, "ret": null, "end_time": 1689814534.1113896}}

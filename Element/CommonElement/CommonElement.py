@@ -29,7 +29,6 @@ class CommonElement:
 
     @allure.step("Click app launcher")
     def click_app_launcher(self, service_name="Service Console"):
-        sleep(3)
         xpath1 = r'/html/body/div[4]/div[1]/section/div[1]/div/div[1]/div[1]/div/div[1]/div[1]/button'
         xpath2 = r'/html/body/div[4]/div[1]/section/div[1]/div[1]/one-appnav/div/div/div/div/one-app-launcher-header/button'
         try:

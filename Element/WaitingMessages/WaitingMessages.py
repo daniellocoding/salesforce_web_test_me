@@ -44,15 +44,24 @@ class WaitingMessagesElement:
         self.common.click_app_launcher("Service Console")
         self.common.click_app_launcher("Cases")
         self.client_to_server.close_all_tabs()
-        time.sleep(5)
+        # Search for Benny's Case Automation Chat List
         self.driver.find_element_by_css_selector_click('.triggerLinkText.selectedListView')
-        time.sleep(5)
         self.airtest_driver.find_element_by_css_selector('.uiInputTextForAutocomplete.uiInput--default.uiInput--input').send_keys("Benny's Case Automation")
-        search_list = self.driver.find_element_by_css_selector_click('.slds-dropdown__list.slds-show')
-        search_list.find_element_by_css_selector_click('.forceVirtualAutocompleteMenuOption')
+        search_list = self.airtest_driver.find_element_by_css_selector('.slds-dropdown__list.slds-show')
+        search_list.find_element_by_css_selector('.forceVirtualAutocompleteMenuOption').click()
+        time.sleep(10)
+        # Get the last message from the chat list
+        row_list = self.airtest_driver.find_element_by_css_selector('.slds-table--resizable-cols.uiVirtualDataTable').find_element_by_tag_name('tbody')
+        dict_last_msg = {
+            'Status': row_list.find_elements_by_tag_name('tr')[0].find_elements_by_css_selector('.slds-cell-edit.cellContainer')[5].text,
+            'Created by': row_list.find_elements_by_tag_name('tr')[0].find_elements_by_css_selector('.slds-cell-edit.cellContainer')[12].text
+        }
+        print(dict_last_msg)
+
         # after 10 minutes
-        row_list = self.airtest_driver.find_element_by_css_selector('.slds-table--resizable-cols.uiVirtualDataTable')
-        print(row_list.find_elements_by_tag('tr')[0].find_element_by_css_selector('.slds-truncate').text)
+        # time.sleep(10*60)
+        # row_list = self.airtest_driver.find_element_by_css_selector('.slds-table--resizable-cols.uiVirtualDataTable')
+        # print(row_list.find_elements_by_tag('tr')[0].find_element_by_css_selector('.slds-truncate').text)
         # self.common.test_accept_case()
         # self.client_to_server.close_case()
 

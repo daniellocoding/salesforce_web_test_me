@@ -1,15 +1,11 @@
 # -*- encoding=utf8 -*-
 __author__ = "Issac"
-
 import time
-
 import allure
 import pytest
 import sys
 from os.path import abspath, dirname
-
 from selenium.webdriver.common.by import By
-
 from BLL.LoginPage.LoginPage import LoginPage
 from Common.Tool import web_tool
 from BLL.WaitingMessages.WaitingMessages import WaitingMessages
@@ -18,7 +14,6 @@ project_path = dirname(dirname(abspath(__file__)))
 sys.path.append(project_path)
 
 excel_data = web_tool().excel_data('../Data/LoginData/data.xlsx')
-
 
 @allure.story('登录账号参数化测试')
 class TestWaitMessages:

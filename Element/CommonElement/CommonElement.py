@@ -79,7 +79,6 @@ class CommonElement:
         self.client_to_server.close_all_tabs()
         self.client_to_server.toggle_omni_channel()
         self.client_to_server.online_omni_channel()
-
         self.client_to_server.accept_omni_channel_case()
         self.client_to_server.toggle_omni_channel()
 

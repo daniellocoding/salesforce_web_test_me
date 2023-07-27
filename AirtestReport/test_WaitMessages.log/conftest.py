@@ -21,13 +21,14 @@ def before():
     # custom_tool().connect_driver()
     option = webdriver.ChromeOptions()
     option.add_argument('--window-size=1080,800')
+    # option.add_argument('--headless')
     # 模拟按下 Win + D 快捷键
     # pyautogui.hotkey('win', 'd')
     driver = WebChrome(executable_path=chromedriver_path, options=option)
     driver.implicitly_wait(30)
     driver.maximize_window()
-    print("打开浏览器".encode('utf-8'))
+    print("Open Browser")
     yield driver
-    print("关闭浏览器".encode('utf-8'))
+    print("Close Browser")
     driver.quit()
     # pyautogui.hotkey('alt', 'tab')

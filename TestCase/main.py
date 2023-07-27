@@ -1,15 +1,12 @@
 import sys
 from os.path import dirname, abspath
-
 import pytest
 from airtest.cli.parser import cli_setup
 from airtest.core.api import auto_setup
 from airtest.report.report import LogToHtml, simple_report
 
-
 project_path = dirname(dirname(abspath(__file__)))
 sys.path.append(project_path)
-
 
 def run_pytest(file):
 
@@ -27,14 +24,14 @@ def run_pytest(file):
 if __name__ == '__main__':
     test_cases = [
         # 'test_ServiceConsole',
-
         # 'test_Login',
         # 'test_ClientToServer',        # Test Case 1
         # 'test_FreeTextMessaging',     # Test Case 2 + 5 (Template loading with changes to fields)
         # 'test_BulkMessaging',         # Test Case 3
         # 'test_BulkMessagesFromCsv',   # Test Case 4
-        'test_WaitMessages',          # Test Case 7, 8, 9
+        # 'test_WaitMessages',          # Test Case 7, 8, 9
         # 'test_ENameCard',             # Test Case 12
+        'test_Last_routing_agent'
 
     ]
     for case in test_cases:

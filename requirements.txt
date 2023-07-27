@@ -12,3 +12,4 @@ opencv-python
 jsonpath
 pyinstaller
 webdriver-manager
+pandas

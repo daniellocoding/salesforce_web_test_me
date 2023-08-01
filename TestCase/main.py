@@ -31,7 +31,7 @@ if __name__ == '__main__':
         # 'test_BulkMessagesFromCsv',   # Test Case 4
         # 'test_WaitMessages',          # Test Case 7, 8, 9
         # 'test_ENameCard',             # Test Case 12
-        'test_Last_routing_agent'
+        # 'test_Last_routing_agent'
 
     ]
     for case in test_cases:

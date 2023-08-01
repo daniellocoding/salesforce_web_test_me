@@ -44,6 +44,7 @@ class Last_routing_agent_dedadicated:
                 if len(self.airtest_driver.find_elements_by_xpath('/html/body/div[4]/div[2]/div/div[2]/div/div[3]/button[1]')) != 0:
                         self.airtest_driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/div[2]/div/div[3]/button[1]').click()
         def last_routing_agent(self):
+                input("Click last_routing_agent first")
                 # 1. Whatsapp say Hi and 1
                 self.airtest_driver.get('https://web.whatsapp.com')
                 self.whatsapp.search_for_contact(self.contact, alt_contact=self.alt_contact)
@@ -75,11 +76,11 @@ class Last_routing_agent_dedadicated:
                 button = self.airtest_driver.find_element_by_xpath('/html/body/div[4]/div[1]/section/div[1]/div/div[2]/div[2]/section/div/div/section/div/div[2]/div/div/div/div/one-record-home-flexipage2/forcegenerated-adg-rollup_component___force-generated__flexipage_-record-page___-communication_-case_record_page___-case___-v-i-e-w/forcegenerated-flexipage_communication_case_record_page_case__view_js/record_flexipage-desktop-record-page-decorator/div[1]/records-record-layout-event-broker/slot/slot/flexipage-record-home-three-col-template-desktop2/div/div/div/flexipage-record-home-scrollable-column[2]/slot/slot/flexipage-component2[1]/slot/flexipage-tabset2/div/lightning-tabset/div/slot/slot/flexipage-tab2[1]/slot/flexipage-component2/slot/flexipage-aura-wrapper').find_element_by_xpath(
                         '/html/body/div[4]/div[1]/section/div[1]/div/div[2]/div[2]/section/div/div/section/div/div[2]/div/div/div/div/one-record-home-flexipage2/forcegenerated-adg-rollup_component___force-generated__flexipage_-record-page___-communication_-case_record_page___-case___-v-i-e-w/forcegenerated-flexipage_communication_case_record_page_case__view_js/record_flexipage-desktop-record-page-decorator/div[1]/records-record-layout-event-broker/slot/slot/flexipage-record-home-three-col-template-desktop2/div/div/div/flexipage-record-home-scrollable-column[2]/slot/slot/flexipage-component2[1]/slot/flexipage-tabset2/div/lightning-tabset/div/slot/slot/flexipage-tab2[1]/slot/flexipage-component2/slot/flexipage-aura-wrapper/div/div/div[2]').find_element_by_css_selector('.slds-button')
                 self.airtest_driver.execute_script('arguments[0].click()', button)
-                # 5. Whatsapp say Hi
+                # 6. Whatsapp say Hi
                 self.airtest_driver.get('https://web.whatsapp.com')
                 self.whatsapp.search_for_contact(self.contact, alt_contact=self.alt_contact)
                 self.whatsapp.client_whatsapp_reply_send_text(message="Second Hi!")
-                # 6. Get info from Case page
+                # 7. Get info from Case page
                 self.airtest_driver.get('https://here2serve--uatc.sandbox.lightning.force.com/lightning/o/Case/list?filterName=00BBU000000blxd2AA')
                 self.click_out_pop_up()
                 self.common.close_all_tabs()
@@ -92,8 +93,9 @@ class Last_routing_agent_dedadicated:
                 self.airtest_driver.find_element_by_xpath('/html/body/div[1]/div/div/div[4]/header/div[2]/div/span/div[4]/span/div/ul/li[6]/div').click()
                 self.airtest_driver.find_element_by_xpath('/html/body/div[1]/div/span[2]/div/div/div/div/div/div/div[3]/div/button[2]').click()
                 # 9. Print output
-                print(dict_info)
+                return dict_info
         def dedicated_agent(self):
+                input("Click dedicated_agent first")
                 # 1. Whatsapp say Hi and 1
                 self.airtest_driver.get('https://web.whatsapp.com')
                 self.whatsapp.search_for_contact('54104965', alt_contact=self.alt_contact)
@@ -116,4 +118,12 @@ class Last_routing_agent_dedadicated:
                         'Case_origin': row_list.find_elements_by_tag_name('tr')[0].find_elements_by_css_selector('.slds-cell-edit.cellContainer')[9].text,
                         'Owner_name': row_list.find_elements_by_tag_name('tr')[0].find_elements_by_css_selector('.slds-cell-edit.cellContainer')[12].text
                 }
-                print(dict_info)
+                # 5. Whatsapp Logout
+                self.airtest_driver.get('https://web.whatsapp.com')
+                self.airtest_driver.find_element_by_xpath(
+                        '/html/body/div[1]/div/div/div[4]/header/div[2]/div/span/div[4]/div').click()
+                self.airtest_driver.find_element_by_xpath(
+                        '/html/body/div[1]/div/div/div[4]/header/div[2]/div/span/div[4]/span/div/ul/li[6]/div').click()
+                self.airtest_driver.find_element_by_xpath(
+                        '/html/body/div[1]/div/span[2]/div/div/div/div/div/div/div[3]/div/button[2]').click()
+                return dict_info

@@ -14,13 +14,13 @@ class WaitingMessages:
 
     @allure.story("Test Queue, case waiting")
     def test_bot_expiry_queue_wait_case_wait(self, contact, alt_contact, username, password):
+        input('Please check that last routing agent, dedicated agent are closed, then enter')
         bot_info = self.wm.get_bot_info(contact, alt_contact, username, password)
-        e1 = self.wm.test_bot_expiry(contact, alt_contact, username, password)
-        e2 = self.wm.test_queue_waiting(contact, alt_contact, username, password)
-        e3 = self.wm.test_case_waiting(contact, alt_contact, username, password)
-        print(bot_info,'\n',e1,'\n',{'Queue_waiting_Reply': e2.split('\n')[0]},'\n',{'Case_waiting_Reply': e3.split('\n')[0]})
-
-
+        bot_expiry = self.wm.test_bot_expiry(contact, alt_contact, username, password)
+        queue_waiting = self.wm.test_queue_waiting(contact, alt_contact, username, password)
+        case_waiting = self.wm.test_case_waiting(contact, alt_contact, username, password)
+        print(bot_info,'\n' ,bot_expiry,'\n', queue_waiting,'\n', case_waiting)
+        self.wm.whatsapp_logout()
 
 
 

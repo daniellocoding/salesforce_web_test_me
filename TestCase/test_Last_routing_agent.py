@@ -17,9 +17,12 @@ excel_data = web_tool().excel_data('../Data/LoginData/data.xlsx')
 @allure.story('登录账号参数化测试')
 class TestLastRouting_Dedadicated:
     @pytest.mark.parametrize("username, password, sender_phone_no, receiver_phone_number, sender_id, whatsapp_contact_no, whatsapp_alt_contact", excel_data)
+    # need to set the bot the last_routing_agent/dedicated_agent first before running this test
     def test_last_routing_dedadicated(self, before, username, password, sender_phone_no, receiver_phone_number, sender_id, whatsapp_contact_no, whatsapp_alt_contact):
         driver = before
         allure.dynamic.title("登录账号参数化测试_%s" % username)
         obj = Last_routing_agent_dedadicated(driver, username, password, whatsapp_contact_no, whatsapp_alt_contact)
-        # obj.last_routing_agent()
-        obj.dedicated_agent()
+        # last_routing = obj.last_routing_agent()
+        dedicated = obj.dedicated_agent()
+        # print(f"Last_routing: {last_routing}")
+        print(f"Dedicated: {dedicated}")

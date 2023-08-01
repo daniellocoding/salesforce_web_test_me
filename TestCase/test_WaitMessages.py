@@ -16,6 +16,7 @@ excel_data = web_tool().excel_data('../Data/LoginData/data.xlsx')
 
 @allure.story('登录账号参数化测试')
 class TestWaitMessages:
+
     @pytest.mark.parametrize(
         "username, password, sender_phone_no, receiver_phone_number, sender_id, whatsapp_contact_no, whatsapp_alt_contact", excel_data)
     def test_wait_messages(self, before, username, password, sender_phone_no, receiver_phone_number, sender_id, whatsapp_contact_no, whatsapp_alt_contact):
